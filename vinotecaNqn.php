@@ -22,10 +22,34 @@ function getVinoteca()
     return $vinoteca;
 }
 
+function showCollection(array $tipo)
+{
+    for ($i = 0; $i < 3; $i++) {
+        showVino($tipo[$i]);
+    }
+}
+
+function showVino(array $vino)
+{
+    echo "Variedad: " . $vino["variedad"] . "\n";
+    echo "Stock: " . $vino["stock"] . "\n";
+    echo "Año de producción: " . $vino["anioProduccion"] . "\n";
+    echo "Precio por Unidad: " . $vino["precioUnitario"] . "\n";
+    echo "\n";
+}
+
 function main()
 {
     $vinoteca = getVinoteca();
-    print_r($vinoteca);
+    //print_r($vinoteca);
+    echo "=== === === === Producción de Malbec === === === ===\n\n";
+    showCollection($vinoteca["Malbec"]);
+
+    echo "=== === === === Producción de Cabernet Sauvignon === === === ===\n\n";
+    showCollection($vinoteca["Cabernet Sauvignon"]);
+
+    echo "=== === === === Producción de Merlot === === === ===\n\n";
+    showCollection($vinoteca["Merlot"]);
 }
 
 main();
